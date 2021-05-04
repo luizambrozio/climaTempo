@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+
+import { Card } from "./components/Card/Card";
+
+const configs = {
+  nuuk: {
+    name: "Nuuk",
+    estado: "GL",
+    lat: 64.1835,
+    lon: -51.7216,
+  },
+  urubici: {
+    name: "Urubici",
+    estado: "BR",
+    lat: -28.015,
+    lon: -49.5917,
+  },
+  nairobi: {
+    name: "Nairobi",
+    estado: "KE",
+    lat: -1.2833,
+    lon: 36.8167,
+  },
+  oslo: {
+    name: "Oslo",
+    estado: "NO",
+    lat: 59.9127,
+    lon: 10.7461,
+  },
+  salvador: {
+    name: "Salvador",
+    estado: "BR",
+    lat: -12.9711,
+    lon: -38.5108,
+  },
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Card config={configs.salvador} />
+      <Card centro={true} config={configs.urubici} />
+      <Card config={configs.oslo} />
+    </Container>
   );
 }
+
+const Container = styled.div`
+  background: #f1f1f1;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
 
 export default App;
