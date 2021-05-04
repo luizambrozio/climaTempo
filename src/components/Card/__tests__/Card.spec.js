@@ -1,9 +1,9 @@
 import React from "react";
 
-import { render, screen, waitFor, act } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
-import { Card } from "./Card";
-import { useWeather } from "../../Hooks/useWeather";
+import { Card } from "../Card";
+import { useWeather } from "../../../Hooks/useWeather";
 
 const value = {
   dt: 1620134839,
@@ -36,7 +36,7 @@ const getPrevisao = {
   },
 };
 
-jest.mock("../../Hooks/useWeather");
+jest.mock("../../../Hooks/useWeather");
 
 test("loads and displays Card Component", async () => {
   useWeather.mockReturnValue(getPrevisao);

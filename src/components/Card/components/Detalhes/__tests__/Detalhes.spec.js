@@ -2,7 +2,7 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 
-import { Detalhes } from "./Detalhes";
+import { Detalhes } from "../Detalhes";
 
 test("loads and displays Detalhes Component", async () => {
   const detaisMock = {

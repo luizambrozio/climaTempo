@@ -40,7 +40,7 @@ function App() {
     <Container>
       <Card config={configs.salvador} />
       <Card centro={true} config={configs.urubici} />
-      <Card config={configs.oslo} />
+      <Card config={configs.nuuk} />
     </Container>
   );
 }

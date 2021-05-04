@@ -2,7 +2,7 @@ import React from "react";
 
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import { Error } from "./Error";
+import { Error } from "../Error";
 const tryAgainMock = jest.fn();
 
 test("loads and displays Error Component", async () => {

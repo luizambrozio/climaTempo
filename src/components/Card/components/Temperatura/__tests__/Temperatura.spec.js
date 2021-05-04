@@ -2,7 +2,7 @@ import React from "react";
 
 import { render, screen } from "@testing-library/react";
 
-import { Temperatura } from "./Temperatura";
+import { Temperatura } from "../Temperatura";
 
 test("loads and displays Temperatura Component", async () => {
   render(<Temperatura temperatura="5" />);
