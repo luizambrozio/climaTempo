@@ -7,6 +7,7 @@ export const useWeather = ({ config }) => {
       value: value,
       expiry: now.getTime() + 600000,
     };
+
     localStorage.setItem(cidade, JSON.stringify(item));
   };
 
