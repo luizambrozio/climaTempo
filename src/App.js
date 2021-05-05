@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { Card } from "./components/Card/Card";
+import { Header } from "./components/Header/Header";
 
 const configs = {
   nuuk: {
@@ -37,20 +38,27 @@ const configs = {
 
 function App() {
   return (
-    <Container>
-      <Card config={configs.salvador} />
-      <Card centro={true} config={configs.urubici} />
-      <Card config={configs.nuuk} />
-    </Container>
+    <>
+      <Header />
+      <ContainerMain>
+        <Card config={configs.salvador} />
+        <Card centro={true} config={configs.urubici} />
+        <Card config={configs.nuuk} />
+      </ContainerMain>
+    </>
   );
 }
 
-const Container = styled.div`
+const ContainerMain = styled.main`
   background: #f1f1f1;
-  height: 100vh;
+  height: 92vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media (max-height: 800px) {
+    min-height: 750px;
+  }
 
   @media (max-width: 800px) {
     flex-direction: column;
