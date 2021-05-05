@@ -36,7 +36,7 @@ const configs = {
   },
 };
 
-function App() {
+export function App() {
   return (
     <>
       <Header />
