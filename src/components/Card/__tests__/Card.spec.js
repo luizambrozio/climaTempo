@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import { Card } from "../Card";
 import { useWeather } from "../../../Hooks/useWeather";
@@ -36,6 +36,17 @@ const getPrevisao = {
   },
 };
 
+const valueError = {
+  Error: "error",
+  code: "error",
+};
+
+const getPrevisaoError = {
+  getPrevisao: () => {
+    return valueError;
+  },
+};
+
 jest.mock("../../../Hooks/useWeather");
 
 test("loads and displays Card Component", async () => {
@@ -54,4 +65,23 @@ test("loads and displays Card Component", async () => {
   await waitFor(() => screen.getByTestId("DetalhesContainer"));
 
   expect(screen.getByTestId("CardContainer")).toBeDefined();
+});
+
+test("loads and displays Card Component with error", async () => {
+  useWeather.mockReturnValue(getPrevisaoError);
+
+  const config = {
+    name: "Salvador",
+    estado: "BR",
+    lat: -12.9711,
+    lon: -38.5108,
+  };
+
+  render(<Card config={config} />);
+  expect(screen.getByTestId("LoadingContainer")).toBeDefined();
+
+  await waitFor(() => screen.getByTestId("ErrorContainer"));
+
+  fireEvent.click(screen.getByTestId("ButtonTryAgain"));
+  expect(screen.getByTestId("LoadingContainer")).toBeDefined();
 });

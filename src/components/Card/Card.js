@@ -18,6 +18,7 @@ export const Card = ({ centro, config }) => {
     if (!previsao) {
       const fetchDados = async () => {
         const prev = await getPrevisao();
+
         if (prev?.code) {
           return setErrorPrevisao(true);
         }

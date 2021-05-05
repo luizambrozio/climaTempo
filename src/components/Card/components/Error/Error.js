@@ -5,7 +5,9 @@ export const Error = ({ tryAgain }) => {
   return (
     <ErrorContainer data-testid="ErrorContainer">
       <ErrorLabel>Something went wrong</ErrorLabel>
-      <ButtonTryAgain onClick={tryAgain}>Try Again</ButtonTryAgain>
+      <ButtonTryAgain onClick={tryAgain} data-testid="ButtonTryAgain">
+        Try Again
+      </ButtonTryAgain>
     </ErrorContainer>
   );
 };
