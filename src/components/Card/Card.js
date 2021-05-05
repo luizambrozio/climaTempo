@@ -31,8 +31,9 @@ export const Card = ({ centro, config }) => {
 
   useEffect(() => {
     setInterval(() => {
+      setErrorPrevisao(undefined);
       setPrevisao(undefined);
-    }, 610000);
+    }, 60000);
   }, []);
 
   const tryGetPrevisao = () => {
@@ -48,7 +49,7 @@ export const Card = ({ centro, config }) => {
       return (
         <>
           <Temperatura temperatura={previsao?.temp} />
-          <Detalhes detais={previsao} />
+          <Detalhes detais={previsao} name={config?.name} />
         </>
       );
     } else {

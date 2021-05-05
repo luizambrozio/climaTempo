@@ -4,8 +4,11 @@ import styled from "styled-components";
 import { Humidity } from "./components/Humidity/Humidity";
 import { Pressure } from "./components/Pressure/Pressure";
 
-export const Detalhes = ({ detais }) => {
-  const data = new Date();
+export const Detalhes = ({ detais, name }) => {
+  const cidadeStr = localStorage.getItem(name);
+  const item = JSON.parse(cidadeStr);
+  const data = new Date(item.updated);
+
   return (
     <DetalhesContainer data-testid="DetalhesContainer">
       <Detail>
@@ -13,7 +16,7 @@ export const Detalhes = ({ detais }) => {
         {detais?.pressure && <Pressure value={detais.pressure} />}
       </Detail>
       <UpdateAt data-testid="UpdateAtContainer">
-        updated at {data.toLocaleTimeString({ hour12: true })}
+        updated at {data.toLocaleTimeString("en-US")}
       </UpdateAt>
     </DetalhesContainer>
   );
