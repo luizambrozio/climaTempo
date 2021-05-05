@@ -41,9 +41,9 @@ export function App() {
     <>
       <Header />
       <ContainerMain>
-        <Card config={configs.salvador} />
-        <Card centro={true} config={configs.urubici} />
         <Card config={configs.nuuk} />
+        <Card centro={true} config={configs.urubici} />
+        <Card config={configs.nairobi} />
       </ContainerMain>
     </>
   );
